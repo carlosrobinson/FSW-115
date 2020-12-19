@@ -1,0 +1,126 @@
+{
+  "menu": [
+    {
+      "appetizers": [
+            {
+            "name": "Breadsticks",
+            "description": "Delicious, homemade, and fluffy",
+            "ingredients": [
+                "flour",
+                "yeast",
+                "sugar",
+                "vegetable oil",
+                "garlic powder",
+                "butter"
+            ]
+            },
+            {
+            "name": "Guacamole",
+            "description": "This is the BEST guacamole in town.",
+            "ingredients": [
+                "avocados",
+                "red onion",
+                "tomatoes",
+                "cilantro",
+                "jalapeno",
+                "cumin",
+                "lime juice"
+            ]
+            }
+        ],
+      "coldSandwiches": [
+            {
+            "name": "Garden-Style Club",
+            "description": "Delicious and with only 310 calories.",
+            "ingredients": [
+                "crunchy cucumbers",
+                "sliced tomatoes",
+                "turkey and bacon"
+            ]
+            },
+            {
+            "name": "Bistro Turkey",
+            "description": "This sandwwhich is to die for we just can keep them in.",
+            "ingredients": [
+                "Turkey breast",
+                "boston lettuce",
+                "sliced pear",
+                "wheat bun"
+            ]
+            }
+        ],
+      "hotSandwiches": [
+            {
+            "name": "Pulled pork",
+            "description": "Served on a bun or wrap tortilla.",
+            "ingredients": [
+                "pork shoulder roast",
+                "oregano",
+                "cumin",
+                "cilantro",
+                "onions",
+                "green chiles"
+            ]
+            },
+            {
+            "name": "Hot Veggie and Cheese Hoagies",
+            "description": "For the veggie lover in you this is the one.",
+            "ingredients": [
+                "onion",
+                "red bell pepper",
+                "small broccoli florets",
+                "dried basil leaves",
+                "Havarti cheese",
+                "Cheddar cheese"
+            ]
+            }
+        ],
+      "desserts": [
+            {
+                "name": "Apple pie",
+                "description": "This is a sweet, tart and delicious apple pie. Guaranteed to please",
+                "ingredients": [
+                    "lemon zest",
+                    "thinly sliced apples",
+                    "butter",
+                    "double crust pie"
+                ]
+            },
+            {
+                "name": "Chocolate Peppermint Cheesecake",
+                "description": "",
+                "ingredients": [
+                    "chocolate wafer crumbs",
+                    "cream cheese, softened",
+                    "chocolate-flavored sweetened condensed milk",
+                    "eggs",
+                    "vanilla extract",
+                    "peppermint extract",
+                    "chocolate chips",
+                    "crushed peppermint candies",
+                    "vegetable oil"
+                ]
+            }
+        ],
+      "drinks":[
+            {
+                "name": "Ice Tea",
+                "description": "The best southern Ice tea around",
+                "ingredients": [
+                    "dried tea leaves",
+                    "sugar",
+                    "1 pinch baking soda"
+                ]
+            },
+            {
+                "name": "Lemonade",
+                "description": "",
+                "ingredients": [
+                    "freshly sqeezed lemons",
+                    "sugar"
+                ]
+            }
+        ]
+    }
+  ]
+}
