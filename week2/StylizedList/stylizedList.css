@@ -1,0 +1,32 @@
+body {
+    position: relative;
+    margin: 20;
+    padding: 0;
+    background-color: lightgray;
+}
+h1 {
+    position: relative;
+    left: 300px;
+}
+
+.app-Title {
+    position: relative;
+    left: 300px;
+}
+
+li {
+position: relative;
+line-height: 30px;
+width: 300px;
+left: 300px;
+}
+
+ #my-Category {
+    position: relative;
+    left: 100px;
+    color:brown;
+}
+#my-output {
+    position: relative;
+    font-size: 15px;
+}
