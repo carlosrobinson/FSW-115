@@ -1,0 +1,1 @@
+If I pass a result of one promise to another promise to another promise resulting in using 3 .then() calls I will end up having 1 .catch() call/calls to handle the errors if they arise.

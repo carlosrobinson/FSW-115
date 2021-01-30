@@ -1,0 +1,10 @@
+body {
+    margin: 25px;
+    padding: 10px;
+}
+
+#my-todos {
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+}

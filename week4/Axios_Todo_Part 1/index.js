@@ -2,48 +2,50 @@
 
 // Get
 let myOl = document.getElementById("my-List")
+function getData(){
+   
 axios.get("https://api.vschool.io/CarlosRobinson1/todo")
 .then(response => {
     for(i = 0; i < response.data.length; i++) {
         var li = document.createElement("li")
-        li.setAttribute(`value`, response.data[i]._id)
+        
         li.textContent = response.data[i].completed
         li.name = "mycomp"
         myOl.append(li)
-        if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
+        // if(response.data[i].completed === true) {
+        //         li.style.textDecoration = "line-through"
                 
-            }
+        //     }
             
         var li = document.createElement("li")
         li.textContent = response.data[i].title
         myOl.appendChild(li)
-        if(response.data[i].completed === true) {
-            li.style.textDecoration = "line-through"
+        // if(response.data[i].completed === true && input.checked === true) {
+        //     li.style.textDecoration = "line-through"
            
-        }
+        // }
         
             var li = document.createElement("li")
             li.textContent = response.data[i].description
             myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
+            // if(response.data[i].completed === true) {
+            //     li.style.textDecoration = "line-through"
               
-            }   
+            // }   
             var li = document.createElement("li")
             li.textContent = `$` + response.data[i].price
             myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
-            } 
+            // if(response.data[i].completed === true) {
+            //     li.style.textDecoration = "line-through"
+            // } 
     
             var li = document.createElement("li")
             li.textContent = response.data[i]._id
             myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
+            // if(response.data[i].completed === true) {
+            //     li.style.textDecoration = "line-through"
           
-            }
+            // }
 
 
             var img = document.createElement("img")
@@ -54,7 +56,7 @@ axios.get("https://api.vschool.io/CarlosRobinson1/todo")
  
             var input = document.createElement("input")
             input.type = "checkbox"
-            input.value = response.data[i]._id
+            input.setAttribute(`value`, response.data[i]._id)
             myOl.appendChild(input) 
 
    
@@ -65,15 +67,12 @@ axios.get("https://api.vschool.io/CarlosRobinson1/todo")
             myOl.appendChild(br)
  
         }        
-
-       
+        
     })
-      
- 
-    
+    myOl.getElementById('todo-list').innerHTML = ""
     .catch(error => console.log(error))
- 
-
+}
+getData()
 
 
 // //Post
