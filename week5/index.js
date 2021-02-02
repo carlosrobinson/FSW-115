@@ -1,107 +1,94 @@
-
-
-// Get
-let myOl = document.getElementById("my-List")
-
+// GET's THE TODO's FROM THE DATABASE
 function getData(){
-
-axios.get("https://api.vschool.io/CarlosRobinson1/todo")
-.then(response => {
-    for(i = 0; i < response.data.length; i++) {
-        var li = document.createElement("li")
-        
-        li.textContent = response.data[i].completed
-        li.name = "mycomp"
-        myOl.append(li)
-        if(response.data[i].completed === true) {
-            li.style.textDecoration = "line-through"
-          
-        }
-            
-        var li = document.createElement("li")
-        li.textContent = response.data[i].title
-        myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
-              
-            }
-        
-            var li = document.createElement("li")
-            li.textContent = response.data[i].description
-            myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
-              
-            }   
-            var li = document.createElement("li")
-            li.textContent = `$` + response.data[i].price
-            myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
-            } 
     
-            var li = document.createElement("li")
-            li.textContent = response.data[i]._id
-            myOl.appendChild(li)
-            if(response.data[i].completed === true) {
-                li.style.textDecoration = "line-through"
-            }
-
-
-            var img = document.createElement("img")
-            img.src = response.data[i].imgUrl
-            img.style.width = "150px"
-            myOl.appendChild(img)
-
- 
-            var input = document.createElement("input")
-            input.type = "checkbox"
-            input.name="checkbox"
-            input.value = response.data[i]._id
-            myOl.appendChild(input) 
-            
-            
-            var btn = document.createElement("button")
-            btn.textContent= "click"
-            btn.id= "button"
-            myOl.append(btn)
-            
-
-                var br = document.createElement("br")
-                myOl.appendChild(br)    
-                var br = document.createElement("br")
-                myOl.appendChild(br)
-                
-                
-                input.addEventListener("input", function (e) {
-                    
-                    e.preventDefault()
-                    var x = input.parentNode
-                    var id = this.value
-                    if(x = this.checked) {
-                        li.style.textDecoration='line-through'
-                        
-                    } else{
-                        li.style.textDecoration='none'
-                    
-                    }
-                var newTodo = {
-                    
-                    completed: this.checked
-                }
-                axios.put("https://api.vschool.io/CarlosRobinson1/todo/" + id , newTodo)
-                .then(respsonse => response())
-                .then(clearList)
-                
-            })
-            
-    }        
-})
-
+    axios.get("https://api.vschool.io/CarlosRobinson1/todo")
+    .then(res => listData(res.data))
+    .catch(err => console.log(err))
+    
+    
 }
 
 
-//Post
+
+// LISTS THE TODO TITLES TO THE DOM
+function listData(data){
+    clearList()
+    
+    for(let i = 0; i < data.length; i++){
+        
+        var li = document.createElement("li")
+        li.textContent = data[i].completed
+        document.getElementById('my-List').appendChild(li)
+        if(data[i].completed === true ) {
+            li.style.textDecoration = "line-through"
+        }
+
+        var li = document.createElement("li")
+        li.textContent = data[i].title
+        document.getElementById('my-List').appendChild(li)
+        if(data[i].completed === true) {
+            li.style.textDecoration = "line-through"
+        }
+
+        var li = document.createElement("li")
+        li.textContent = data[i].description
+        document.getElementById('my-List').appendChild(li)
+        if(data[i].completed === true) {
+            li.style.textDecoration = "line-through"
+        }
+
+        var li = document.createElement("li")
+        li.textContent = `$` + data[i].price
+        document.getElementById('my-List').appendChild(li)
+                if(data[i].completed === true) {
+            li.style.textDecoration = "line-through"
+        }
+
+        var li = document.createElement("li")
+        li.textContent = data[i]._id
+        document.getElementById('my-List').appendChild(li)
+        if(data[i].completed === true) {
+            li.style.textDecoration = "line-through"
+        }
+        
+        var img = document.createElement("img")
+        img.src = data[i].imgUrl
+        img.style.width = "150px"
+        document.getElementById('my-List').appendChild(img)
+
+        var input = document.createElement("input")
+        input.type = "checkbox"
+        input.name="checkbox"
+        input.value = data[i]._id
+        document.getElementById('my-List').appendChild(input) 
+        
+        var btn = document.createElement("button")
+        btn.textContent= "delete"
+        btn.id= "button"
+        btn.value = data[i]._id
+        document.getElementById('my-List').appendChild(btn)
+    
+
+//Put
+const myLi = document.querySelectorAll("li")
+        input.addEventListener("input", async function (e) {               
+            e.preventDefault()
+            var x = input.parentNode
+             li.parentNode
+            var id = this.value
+            if(x = this.checked) {
+               li.style.textDecoration='line-through' 
+            } else{
+                li.style.textDecoration='none'      
+           }
+        var newTodo = {
+           completed:  this.checked
+        }
+        
+           await axios.put("https://api.vschool.io/CarlosRobinson1/todo/" + id , newTodo)
+           
+    })
+        //Post
         const todoform = document.todoform
         todoform.addEventListener("submit", function(event){
             event.preventDefault()
@@ -112,23 +99,60 @@ axios.get("https://api.vschool.io/CarlosRobinson1/todo")
                 price: todoform.price.value,
                 imgUrl: todoform.imgUrl.value
             }
-            todoForm.title.value = ""
+            todoform.title.value = ""
             axios.post("https://api.vschool.io/CarlosRobinson1/todo", newTodo)
-                
-            .then(response => getData())
-                .catch(error => console.log(error))
-                
-
+            
+             getData()
+            .catch(error => console.log(error))
+            
+            
         }) 
-function clearList(){
-    const el = document.getElementById('my-List')
-    while(el.firstChild){
-        el.removeChild(el.firstChild)
-    }
-}
- 
+    //Delete
+    btn.addEventListener("click", async function (e) {               
+        e.preventDefault()
+       btn.parentNode
+       var id = this.value
 
+       await axios.delete("https://api.vschool.io/CarlosRobinson1/todo/" + id )
+        getData()
 
-
+    })
 
     
+}
+
+}
+
+    
+    getData()
+    function clearList(){
+        const el = document.getElementById('my-List')
+        while(el.firstChild){
+            el.removeChild(el.firstChild)
+        }
+        
+    }
+    
+
+
+
+
+
+
+// FORM FOR THE POST REQUEST
+// const todoForm = document["todo-form"]
+
+// todoForm.addEventListener("submit", function(e){
+//     e.preventDefault()
+    
+//     const newTodo = {
+//         title: todoForm.title.value
+//     }
+    
+//     todoForm.title.value = ""
+
+//     axios.post("https://api.vschool.io/CarlosRobinson1/todo", newTodo)
+//         .then(res => getData())
+//         .catch(err => console.log(err))
+
+// })
