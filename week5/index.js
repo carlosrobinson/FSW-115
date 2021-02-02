@@ -139,20 +139,4 @@ const myLi = document.querySelectorAll("li")
 
 
 
-// FORM FOR THE POST REQUEST
-// const todoForm = document["todo-form"]
 
-// todoForm.addEventListener("submit", function(e){
-//     e.preventDefault()
-    
-//     const newTodo = {
-//         title: todoForm.title.value
-//     }
-    
-//     todoForm.title.value = ""
-
-//     axios.post("https://api.vschool.io/CarlosRobinson1/todo", newTodo)
-//         .then(res => getData())
-//         .catch(err => console.log(err))
-
-// })
